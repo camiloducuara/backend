@@ -3,6 +3,7 @@ package com.senasoft.participacionciudadana.service.sondeoadmin;
 import com.senasoft.participacionciudadana.entity.admin.PreguntaAdmin;
 import com.senasoft.participacionciudadana.entity.admin.SondeoAdmin;
 import com.senasoft.participacionciudadana.repository.SondeoAdminRepository;
+import com.senasoft.participacionciudadana.service.exception.BadRequestException;
 import com.senasoft.participacionciudadana.service.exception.NotFoundException;
 import com.senasoft.participacionciudadana.service.sondeoadmin.mapper.SondeoAdminMapper;
 import com.senasoft.participacionciudadana.service.sondeoadmin.request.SondeoAdminRequest;
@@ -25,6 +26,10 @@ public class SondeoAdminServiceImpl implements SondeoAdminService {
 
     @Override
     public void create(SondeoAdminRequest sondeoAdminRequest) {
+
+        if (sondeoAdminRepository.findByTitulo(sondeoAdminRequest.getTitulo()).isPresent()){
+            throw new BadRequestException("Ya existe un sondeo con el mismo titulo");
+        }
 
         SondeoAdmin sondeoAdmin = sondeoAdminMapper.aEntidad(sondeoAdminRequest);
 
