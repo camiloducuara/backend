@@ -9,6 +9,18 @@ services:
     ports:
       - '5432:5432'
 
+    networks:
+      - SenaSoft
+
+  participacionciudadana:
+    image: participacionciudadana
+    container_name: participacion-ciudadana
+    ports:
+      - '8080:8080'
+
+    networks:
+      - SenaSoft
+
 networks:
   SenaSoft:
     driver: bridge
