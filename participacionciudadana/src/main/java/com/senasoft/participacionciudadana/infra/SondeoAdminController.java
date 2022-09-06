@@ -1,6 +1,5 @@
 package com.senasoft.participacionciudadana.infra;
 
-import com.senasoft.participacionciudadana.entity.admin.SondeoAdmin;
 import com.senasoft.participacionciudadana.service.sondeoadmin.SondeoAdminService;
 import com.senasoft.participacionciudadana.service.sondeoadmin.request.SondeoAdminRequest;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.SondeoAdminResponse;

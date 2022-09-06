@@ -1,6 +1,6 @@
-package com.senasoft.participacionciudadana.entity.ciudadano.respuesta;
+package com.senasoft.participacionciudadana.entity.ciudadanosondeo.respuesta;
 
-import com.senasoft.participacionciudadana.entity.ciudadano.PreguntaCiudadano;
+import com.senasoft.participacionciudadana.entity.ciudadanosondeo.PreguntaCiudadano;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

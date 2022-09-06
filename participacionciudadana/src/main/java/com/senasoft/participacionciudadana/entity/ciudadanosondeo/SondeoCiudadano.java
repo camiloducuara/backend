@@ -1,6 +1,5 @@
-package com.senasoft.participacionciudadana.entity.admin;
+package com.senasoft.participacionciudadana.entity.ciudadanosondeo;
 
-import com.senasoft.participacionciudadana.entity.admin.PreguntaAdmin;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +9,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "sondeo_admin")
+@Table(name = "sondeo_ciudadano")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SondeoAdmin {
+public class SondeoCiudadano {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,7 @@ public class SondeoAdmin {
     private String contenido;
     private String imagen;
 
-    @OneToMany(mappedBy = "sondeoAdmin")
-    private List<PreguntaAdmin> preguntaAdmins;
+    @OneToMany(mappedBy = "sondeo")
+    private List<PreguntaCiudadano> preguntaCiudadanos;
+
 }

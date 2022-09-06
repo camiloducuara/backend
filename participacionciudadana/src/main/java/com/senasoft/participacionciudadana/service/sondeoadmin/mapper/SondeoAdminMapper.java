@@ -1,10 +1,9 @@
 package com.senasoft.participacionciudadana.service.sondeoadmin.mapper;
 
-import com.senasoft.participacionciudadana.entity.admin.PreguntaAdmin;
-import com.senasoft.participacionciudadana.entity.admin.SondeoAdmin;
+import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
+import com.senasoft.participacionciudadana.entity.adminsondeo.SondeoAdmin;
 import com.senasoft.participacionciudadana.repository.PreguntaAdminRepository;
 import com.senasoft.participacionciudadana.repository.SondeoAdminRepository;
-import com.senasoft.participacionciudadana.service.exception.NotFoundException;
 import com.senasoft.participacionciudadana.service.sondeoadmin.request.SondeoAdminRequest;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.PreguntaAdminResponse;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.SondeoAdminResponse;

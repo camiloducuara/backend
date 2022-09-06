@@ -1,7 +1,7 @@
 package com.senasoft.participacionciudadana.service.sondeoadmin;
 
-import com.senasoft.participacionciudadana.entity.admin.PreguntaAdmin;
-import com.senasoft.participacionciudadana.entity.admin.SondeoAdmin;
+import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
+import com.senasoft.participacionciudadana.entity.adminsondeo.SondeoAdmin;
 import com.senasoft.participacionciudadana.repository.SondeoAdminRepository;
 import com.senasoft.participacionciudadana.service.exception.BadRequestException;
 import com.senasoft.participacionciudadana.service.exception.NotFoundException;
