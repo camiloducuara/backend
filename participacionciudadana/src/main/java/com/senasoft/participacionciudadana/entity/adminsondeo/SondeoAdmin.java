@@ -22,6 +22,7 @@ public class SondeoAdmin {
     private String titulo;
     private String contenido;
     private String imagen;
+    private String etniaDirigida;
 
     @OneToMany(mappedBy = "sondeoAdmin")
     private List<PreguntaAdmin> preguntaAdmins;

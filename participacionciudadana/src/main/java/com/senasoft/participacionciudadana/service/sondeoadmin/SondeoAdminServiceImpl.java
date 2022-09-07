@@ -1,5 +1,6 @@
 package com.senasoft.participacionciudadana.service.sondeoadmin;
 
+import com.senasoft.participacionciudadana.entity.adminsondeo.OpcionesAdmin;
 import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
 import com.senasoft.participacionciudadana.entity.adminsondeo.SondeoAdmin;
 import com.senasoft.participacionciudadana.repository.adminsondeo.SondeoAdminRepository;
@@ -36,6 +37,15 @@ public class SondeoAdminServiceImpl implements SondeoAdminService {
         List<PreguntaAdmin> preguntaAdmins = sondeoAdmin.getPreguntaAdmins().stream().map(
                 preguntaAdmin -> {
                     preguntaAdmin.setSondeoAdmin(sondeoAdmin);
+
+                    List<OpcionesAdmin> opcionesAdminsARetornar = preguntaAdmin.getOpcionesAdmins()
+                            .stream().map(opcionesAdmin -> {
+                                opcionesAdmin.setPreguntaAdmin(preguntaAdmin);
+                                return opcionesAdmin;
+                            }).collect(Collectors.toList());
+
+                    preguntaAdmin.setOpcionesAdmins(opcionesAdminsARetornar);
+
                     return preguntaAdmin;
                 }
         ).collect(Collectors.toList());

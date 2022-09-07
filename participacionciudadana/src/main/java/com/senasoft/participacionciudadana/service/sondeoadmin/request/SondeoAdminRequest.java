@@ -9,6 +9,7 @@ public class SondeoAdminRequest {
     private String titulo;
     private String contenido;
     private String imagen;
+    private String etniaDirigida;
 
     private List<PreguntaAdminRequest> preguntaAdminRequests;
 }

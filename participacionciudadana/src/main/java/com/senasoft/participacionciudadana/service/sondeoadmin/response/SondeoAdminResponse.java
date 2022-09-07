@@ -10,6 +10,7 @@ public class SondeoAdminResponse {
     private String titulo;
     private String contenido;
     private String imagen;
+    private String etniaDirigida;
 
     List<PreguntaAdminResponse> preguntaAdminResponses;
 }

@@ -1,9 +1,10 @@
 package com.senasoft.participacionciudadana.service.sondeoadmin.mapper;
 
+import com.senasoft.participacionciudadana.entity.adminsondeo.OpcionesAdmin;
 import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
 import com.senasoft.participacionciudadana.entity.adminsondeo.SondeoAdmin;
+import com.senasoft.participacionciudadana.repository.adminsondeo.OpcionAdminRepository;
 import com.senasoft.participacionciudadana.repository.adminsondeo.PreguntaAdminRepository;
-import com.senasoft.participacionciudadana.repository.adminsondeo.SondeoAdminRepository;
 import com.senasoft.participacionciudadana.service.sondeoadmin.request.SondeoAdminRequest;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.PreguntaAdminResponse;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.SondeoAdminResponse;
@@ -22,7 +23,10 @@ public abstract class SondeoAdminMapper {
     protected PreguntaAdminRepository preguntaAdminRepository;
 
     @Autowired
-    protected SondeoAdminRepository sondeoAdminRepository;
+    protected OpcionMapper opcionMapper;
+
+    @Autowired
+    protected OpcionAdminRepository opcionAdminRepository;
 
     protected Function<SondeoAdminRequest, List<PreguntaAdmin>> mapearAEntidadesPreguntas
             = sondeoAdminRequest -> {
@@ -32,6 +36,14 @@ public abstract class SondeoAdminMapper {
                     PreguntaAdmin preguntaAdmin = new PreguntaAdmin();
                     preguntaAdmin.setContenido(preguntaAdminRequest.getContenido());
                     preguntaAdmin.setType(preguntaAdminRequest.getType());
+
+                    List<OpcionesAdmin> opcionesAdmins = preguntaAdminRequest.getOpcionAdminRequests().stream()
+                            .map(opcionMapper::aEntidad).collect(Collectors.toList());
+
+                    opcionAdminRepository.saveAll(opcionesAdmins);
+
+                    preguntaAdmin.setOpcionesAdmins(opcionesAdmins);
+
                     return preguntaAdmin;
                 }
                 )
@@ -50,6 +62,9 @@ public abstract class SondeoAdminMapper {
                             PreguntaAdminResponse preguntaAdminResponse = new PreguntaAdminResponse();
                             preguntaAdminResponse.setContenido(preguntaAdmin.getContenido());
                             preguntaAdminResponse.setType(preguntaAdmin.getType());
+
+                            preguntaAdminResponse.setOpcionAdminResponses(preguntaAdmin.getOpcionesAdmins()
+                                    .stream().map(opcionMapper::aRespuesta).collect(Collectors.toList()));
 
                             return preguntaAdminResponse;
                         }
