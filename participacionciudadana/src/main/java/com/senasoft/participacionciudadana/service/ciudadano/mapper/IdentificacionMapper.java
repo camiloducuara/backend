@@ -7,6 +7,7 @@ import com.senasoft.participacionciudadana.repository.ciudadano.IdentificacionRe
 import com.senasoft.participacionciudadana.service.ciudadano.request.IdentificacionRequest;
 import com.senasoft.participacionciudadana.service.ciudadano.response.CuentaResponse;
 import com.senasoft.participacionciudadana.service.ciudadano.response.IdentificacionResponse;
+import com.senasoft.participacionciudadana.service.exception.BadRequestException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,12 @@ public abstract class IdentificacionMapper {
 
     protected Function<IdentificacionRequest, Cuenta> mapearCuentaRequestAEntidad =
             identificacionRequest -> {
+
+                if (cuentaRepository.findByUsername(identificacionRequest
+                        .getCuentaRequest().getUsername()).isPresent()){
+
+                    throw new BadRequestException("El nombre de usuario ya existe");
+                }
 
                 Cuenta cuenta = cuentaMapper.toEntity(identificacionRequest.getCuentaRequest());
 

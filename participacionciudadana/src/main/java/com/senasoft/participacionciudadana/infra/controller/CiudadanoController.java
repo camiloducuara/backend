@@ -24,7 +24,7 @@ public class CiudadanoController {
         return ResponseEntity.ok(ciudadanoService.obtenerTodos());
     }
 
-    @PostMapping()
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     void create(@RequestBody CiudadanoRequest ciudadanoRequest){
         ciudadanoService.crear(ciudadanoRequest);

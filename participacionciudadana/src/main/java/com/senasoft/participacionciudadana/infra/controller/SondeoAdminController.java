@@ -19,7 +19,7 @@ public class SondeoAdminController {
         this.sondeoAdminService = sondeoAdminService;
     }
 
-    @GetMapping()
+    @GetMapping("/getAll")
     public ResponseEntity<List<SondeoAdminResponse>> getAll(){
         return ResponseEntity.ok(sondeoAdminService.getAll());
     }

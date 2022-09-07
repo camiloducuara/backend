@@ -1,5 +1,6 @@
 package com.senasoft.participacionciudadana.entity.adminsondeo;
 
+import com.senasoft.participacionciudadana.entity.ciudadanosondeo.RespuestaCiudadano;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,8 @@ public class PreguntaAdmin {
 
     @OneToMany(mappedBy = "preguntaAdmin")
     private List<OpcionesAdmin> opcionesAdmins;
+
+    @OneToMany(mappedBy = "preguntaAdmin")
+    private List<RespuestaCiudadano> respuestaCiudadanos;
 
 }

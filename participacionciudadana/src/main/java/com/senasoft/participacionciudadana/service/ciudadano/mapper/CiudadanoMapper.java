@@ -6,6 +6,7 @@ import com.senasoft.participacionciudadana.repository.ciudadano.IdentificacionRe
 import com.senasoft.participacionciudadana.service.ciudadano.request.CiudadanoRequest;
 import com.senasoft.participacionciudadana.service.ciudadano.response.CiudadanoResponse;
 import com.senasoft.participacionciudadana.service.ciudadano.response.IdentificacionResponse;
+import com.senasoft.participacionciudadana.service.exception.BadRequestException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public abstract class CiudadanoMapper {
 
     protected Function<CiudadanoRequest, Identificacion> mapearIdentificacionRequestAEntidad =
             ciudadanoRequest -> {
+
+                if (identificacionRepository.findByNumeroDocumento(
+                        ciudadanoRequest.getIdentificacionRequest().getNumeroDocumento()).isPresent()){
+
+                    throw new BadRequestException("Ya te has registrado antes en el sistema");
+                }
 
                 Identificacion identificacion = identificacionMapper.toEntity(ciudadanoRequest.getIdentificacionRequest());
                 identificacionRepository.save(identificacion);

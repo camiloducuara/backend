@@ -26,6 +26,7 @@ public class CiudadanoServiceImpl implements CiudadanoService{
 
     @Override
     public void crear(CiudadanoRequest ciudadanoRequest) {
+
         ciudadanoRepository.save(ciudadanoMapper.aEntidad(ciudadanoRequest));
     }
 
