@@ -2,7 +2,7 @@ package com.senasoft.participacionciudadana.service.sondeoadmin;
 
 import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
 import com.senasoft.participacionciudadana.entity.adminsondeo.SondeoAdmin;
-import com.senasoft.participacionciudadana.repository.SondeoAdminRepository;
+import com.senasoft.participacionciudadana.repository.adminsondeo.SondeoAdminRepository;
 import com.senasoft.participacionciudadana.service.exception.BadRequestException;
 import com.senasoft.participacionciudadana.service.exception.NotFoundException;
 import com.senasoft.participacionciudadana.service.sondeoadmin.mapper.SondeoAdminMapper;
@@ -55,5 +55,5 @@ public class SondeoAdminServiceImpl implements SondeoAdminService {
     public SondeoAdminResponse getById(Long id) {
         return sondeoAdminMapper.aRespuesta(sondeoAdminRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Sondeo no encontrado")));
-    }
-}
+        }
+        }
