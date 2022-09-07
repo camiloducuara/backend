@@ -13,13 +13,16 @@ services:
       - SenaSoft
 
   participacionciudadana:
-    image: participacionciudadana
+    image: participacion-ciudadana
     container_name: participacion-ciudadana
     ports:
       - '8080:8080'
 
     networks:
       - SenaSoft
+
+    depends_on:
+      - db
 
 networks:
   SenaSoft:

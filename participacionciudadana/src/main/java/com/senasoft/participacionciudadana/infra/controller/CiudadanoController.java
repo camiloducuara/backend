@@ -1,4 +1,4 @@
-package com.senasoft.participacionciudadana.infra;
+package com.senasoft.participacionciudadana.infra.controller;
 
 import com.senasoft.participacionciudadana.service.ciudadano.CiudadanoService;
 import com.senasoft.participacionciudadana.service.ciudadano.request.CiudadanoRequest;

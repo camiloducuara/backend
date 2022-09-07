@@ -9,6 +9,7 @@ import com.senasoft.participacionciudadana.service.ciudadano.response.CuentaResp
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.function.Function;
 
@@ -21,8 +22,8 @@ public abstract class CuentaMapper {
     @Autowired
     protected ContactoRepository contactoRepository;
 
-
-    //Importante encriptar la contraseña con PasswordEncoder
+    @Autowired
+    protected PasswordEncoder passwordEncoder;
 
     Function<CuentaRequest, Contacto> mapearContactoRequestAEntidad = cuentaRequest -> {
 
@@ -38,6 +39,8 @@ public abstract class CuentaMapper {
 
     @Mapping(target="contacto",
             expression = "java(mapearContactoRequestAEntidad.apply(cuentaRequest))")
+    @Mapping(target = "password",
+             expression = "java(passwordEncoder.encode(cuentaRequest.getPassword()))")
     public abstract Cuenta toEntity(CuentaRequest cuentaRequest);
 
     @Mapping(target="contactoResponse",
