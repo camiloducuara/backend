@@ -7,6 +7,17 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+
+ * Esta clase contiene los datos para opciones de las preguntas del lado del administrador
+ * junto con su respectiva relacion a la pregunta
+
+ * @author: Camilo Andres Ducuara Cardozo
+
+ * @version: 08/09/2022
+
+ */
+
 @Entity
 @Table(name = "opciones_admin")
 @Getter

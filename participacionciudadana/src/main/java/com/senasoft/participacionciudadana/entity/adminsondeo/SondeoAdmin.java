@@ -9,6 +9,17 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+
+/**
+
+ * Esta clase contiene el titulo, contenido, imagen, etnia, pregunta de administrador y los sondeos
+ * respondidos por los ciudadanos
+
+ * @author: Camilo Andres Ducuara Cardozo
+
+ * @version: 08/09/2022
+
+ */
 @Entity
 @Table(name = "sondeo_admin")
 @Getter

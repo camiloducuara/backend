@@ -1,6 +1,6 @@
 package com.senasoft.participacionciudadana.infra.security.config;
 
-import com.senasoft.participacionciudadana.infra.security.CustomUserDetailsService;
+import com.senasoft.participacionciudadana.entity.ciudadano.Contacto;
 import com.senasoft.participacionciudadana.infra.security.jwt.JwtAuthenticationEntryPoint;
 import com.senasoft.participacionciudadana.infra.security.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,25 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+
+ * Esta clase contiene la configuracion de la cadena de seguridad, el gestor de autenticaciones
+ * y el filtro del token. Contiene las url permitidad y las que necesitan permiso de administrador
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see UserDetailsService
+ * @see JwtAuthenticationEntryPoint
+ * @see AuthenticationManager
+ * @see SecurityFilterChain
+
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)

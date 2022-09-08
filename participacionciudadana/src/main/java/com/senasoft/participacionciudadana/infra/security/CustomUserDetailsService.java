@@ -1,6 +1,7 @@
 package com.senasoft.participacionciudadana.infra.security;
 
 import com.senasoft.participacionciudadana.entity.ciudadano.Ciudadano;
+import com.senasoft.participacionciudadana.entity.ciudadano.Contacto;
 import com.senasoft.participacionciudadana.repository.ciudadano.CiudadanoRepository;
 import com.senasoft.participacionciudadana.service.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+
+ * Esta clase se encanrga de cargar el usuario para posteriormente devolverlo en la implementacion
+ * de User con sus Authorities dada por SpringSecurity
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see User
+
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

@@ -1,13 +1,25 @@
 package com.senasoft.participacionciudadana.entity.ciudadanosondeo;
 
 import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
+import com.senasoft.participacionciudadana.entity.ciudadano.Contacto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+
+/**
+
+ * Contiene las respuestas que le dan los ciudadanos a las preguntas
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see PreguntaAdmin
+
+ */
 
 @Entity
 @Table(name = "respuesta_ciudadano")

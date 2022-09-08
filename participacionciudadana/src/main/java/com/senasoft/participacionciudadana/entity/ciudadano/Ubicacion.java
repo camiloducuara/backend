@@ -7,6 +7,16 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+
+ * Esta clase contiene la informacion sobre ubicacion del usuario y es la ultima en la cadena de
+ * relaciones con Ciudadano
+
+ * @author : Camilo Andres Ducuara Cardozo
+ * @version  : 08/09/2022
+
+ */
+
 @Entity
 @Table(name = "ubicacion")
 @Getter

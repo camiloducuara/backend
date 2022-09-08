@@ -1,5 +1,6 @@
 package com.senasoft.participacionciudadana.infra.security.jwt;
 
+import com.senasoft.participacionciudadana.entity.ciudadano.Contacto;
 import com.senasoft.participacionciudadana.infra.security.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,6 +16,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+
+ * Esta clase es la encargada de filtrar el token de cada peticion, validar su firma y asignarlo al
+ * contexto de seguridad
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see JwtTokenProvider
+ * @see CustomUserDetailsService
+
+ */
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenProvider tokenProvider;

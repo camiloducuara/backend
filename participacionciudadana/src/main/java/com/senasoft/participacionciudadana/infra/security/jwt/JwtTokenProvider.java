@@ -1,5 +1,6 @@
 package com.senasoft.participacionciudadana.infra.security.jwt;
 
+import com.senasoft.participacionciudadana.entity.ciudadano.Contacto;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,19 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
 
+/**
+
+ * Esta clase es la encargada de generar el token con su llave, firma y fecha de expiracion ademas
+ * de validarlo antes de su retorno
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see Jwts
+ * @see Claims
+
+ */
 @Component
 public class JwtTokenProvider {
 

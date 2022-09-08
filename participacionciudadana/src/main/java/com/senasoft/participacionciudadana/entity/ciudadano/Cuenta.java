@@ -7,6 +7,17 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+
+ * Esta clase contiene la informacion de credenciales del usuario y su relacion a la ubicacion
+
+ * @author : Camilo Andres Ducuara Cardozo
+
+ * @version : 08/09/2022
+ *
+ * @see Contacto
+
+ */
 @Entity
 @Table(name = "cuenta")
 @Getter
