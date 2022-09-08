@@ -1,5 +1,6 @@
 package com.senasoft.participacionciudadana.service.login;
 
+import com.senasoft.participacionciudadana.entity.adminsondeo.PreguntaAdmin;
 import com.senasoft.participacionciudadana.infra.security.jwt.JwtTokenProvider;
 import com.senasoft.participacionciudadana.repository.ciudadano.CuentaRepository;
 import com.senasoft.participacionciudadana.service.exception.NotFoundException;
@@ -14,6 +15,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
+/**
+ * Por medio de la seguridad implementada, se autentica el usuario, suministra el token y el rol si
+ * sus credenciales son correctas
+
+ * @version : 08/09/2022
+ *
+
+ */
 @Service
 public class LoginServiceImpl implements LoginService{
 
