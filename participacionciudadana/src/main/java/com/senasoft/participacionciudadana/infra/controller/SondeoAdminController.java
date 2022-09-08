@@ -3,6 +3,7 @@ package com.senasoft.participacionciudadana.infra.controller;
 import com.senasoft.participacionciudadana.service.sondeoadmin.SondeoAdminService;
 import com.senasoft.participacionciudadana.service.sondeoadmin.request.SondeoAdminRequest;
 import com.senasoft.participacionciudadana.service.sondeoadmin.response.SondeoAdminResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/sondeo-admin")
 @CrossOrigin(origins = "*")
+@SecurityRequirement(name = "bearer")
 public class SondeoAdminController {
 
     private SondeoAdminService sondeoAdminService;
@@ -25,7 +27,7 @@ public class SondeoAdminController {
         return ResponseEntity.ok(sondeoAdminService.getAll());
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<SondeoAdminResponse> getById(@PathVariable Long id){
         return ResponseEntity.ok(sondeoAdminService.getById(id));
     }

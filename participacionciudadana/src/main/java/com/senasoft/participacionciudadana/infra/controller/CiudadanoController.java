@@ -3,6 +3,7 @@ package com.senasoft.participacionciudadana.infra.controller;
 import com.senasoft.participacionciudadana.service.ciudadano.CiudadanoService;
 import com.senasoft.participacionciudadana.service.ciudadano.request.CiudadanoRequest;
 import com.senasoft.participacionciudadana.service.ciudadano.response.CiudadanoResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/ciudadano")
 @CrossOrigin(origins = "*")
+@SecurityRequirement(name = "bearer")
 public class CiudadanoController {
 
     private CiudadanoService ciudadanoService;

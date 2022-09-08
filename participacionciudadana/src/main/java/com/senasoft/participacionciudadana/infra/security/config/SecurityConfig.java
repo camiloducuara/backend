@@ -61,10 +61,7 @@ public class SecurityConfig {
                 .and()
 
                 .authorizeRequests()
-
-                .antMatchers("/api/sondeo-admin/", "/api/ciudadano/",
-                        "/api/ciudadano/numeroDoc/", "/api/ciudadano/etnia/")
-                .hasRole("admin")
+                .antMatchers("/api/ciudadano", "/api/sondeo-admin").hasAnyAuthority("admin")
 
                 .antMatchers("/api/ciudadano/register",
                         "/api/login", "/api/sondeo-admin/getAll", "/api/sondeo-admin/id/{id}" ,"/swagger-ui/**", "/v3/api-docs/**")
