@@ -9,5 +9,5 @@ public interface CiudadanoService {
     void crear(CiudadanoRequest ciudadanoRequest);
     List<CiudadanoResponse> obtenerTodos();
     CiudadanoResponse obtenerPorNumeroDeDocumento(String numeroDeDocumento);
-    CiudadanoResponse obtenerPorEtnia(String etnia);
+    List<CiudadanoResponse> obtenerPorEtnia(String etnia);
 }

@@ -63,7 +63,7 @@ public class SecurityConfig {
                 .authorizeRequests()
 
                 .antMatchers("/api/sondeo-admin/", "/api/ciudadano/",
-                        "/api/ciudadano/numeroDoc/**", "/api/ciudadano/etnia/**")
+                        "/api/ciudadano/numeroDoc/", "/api/ciudadano/etnia/")
                 .hasRole("admin")
 
                 .antMatchers("/api/ciudadano/register",

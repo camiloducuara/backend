@@ -21,6 +21,8 @@ public class SondeoCiudadano {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String username;
+
     @JoinColumn(name = "sondeo_admin_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private SondeoAdmin sondeoAdmin;

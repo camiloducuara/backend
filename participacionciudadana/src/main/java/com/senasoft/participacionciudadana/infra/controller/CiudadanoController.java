@@ -30,13 +30,13 @@ public class CiudadanoController {
         ciudadanoService.crear(ciudadanoRequest);
     }
 
-    @GetMapping("numeroDoc/{numeroDeDocumento}")
+    @GetMapping("/numeroDoc/{numeroDeDocumento}")
     ResponseEntity<CiudadanoResponse> getByNumeroDeDocumento(@PathVariable String numeroDeDocumento){
         return ResponseEntity.ok(ciudadanoService.obtenerPorNumeroDeDocumento(numeroDeDocumento));
     }
 
-    @GetMapping("etnia/{etnia}")
-    ResponseEntity<CiudadanoResponse> getByEtnia(@PathVariable String etnia){
+    @GetMapping("/etnia/{etnia}")
+    ResponseEntity<List<CiudadanoResponse>> getByEtnia(@PathVariable String etnia){
         return ResponseEntity.ok(ciudadanoService.obtenerPorEtnia(etnia));
     }
 

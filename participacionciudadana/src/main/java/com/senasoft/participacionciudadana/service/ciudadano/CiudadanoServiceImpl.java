@@ -54,7 +54,7 @@ public class CiudadanoServiceImpl implements CiudadanoService{
     }
 
     @Override
-    public CiudadanoResponse obtenerPorEtnia(String etnia) {
+    public List<CiudadanoResponse> obtenerPorEtnia(String etnia) {
 
         List<Ciudadano> ciudadanos = ciudadanoRepository.findAll();
 
@@ -67,6 +67,6 @@ public class CiudadanoServiceImpl implements CiudadanoService{
         }
 
         return ciudadanosPorNumeroDeDocumento.stream()
-                .map(ciudadanoMapper::aRespuesta).collect(Collectors.toList()).get(0);
+                .map(ciudadanoMapper::aRespuesta).collect(Collectors.toList());
     }
 }
