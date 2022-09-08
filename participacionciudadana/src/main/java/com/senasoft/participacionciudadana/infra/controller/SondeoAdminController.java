@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/sondeo-admin")
+@CrossOrigin(origins = "*")
 public class SondeoAdminController {
 
     private SondeoAdminService sondeoAdminService;
